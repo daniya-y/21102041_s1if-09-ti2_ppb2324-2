@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 58, 183, 83)),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 117, 231, 88)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: '21102041-Daniya Auly Yasmin'),
