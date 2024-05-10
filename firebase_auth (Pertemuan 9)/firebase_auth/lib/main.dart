@@ -1,4 +1,5 @@
 import 'package:firebase_auth09/bloc/login/login_cubit.dart';
+import 'package:firebase_auth09/bloc/register/register_cubit.dart';
 import 'package:firebase_auth09/ui/splash.dart';
 import 'package:firebase_auth09/utils/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => LoginCubit())
+        BlocProvider(create: (context) => LoginCubit()),
+        BlocProvider(create: (context) => RegisterCubit())
       ],
       child:
 MaterialApp(
