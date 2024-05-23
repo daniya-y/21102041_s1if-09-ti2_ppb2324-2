@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth09/bloc/login/login_cubit.dart';
 import 'package:firebase_auth09/bloc/register/register_cubit.dart';
+import 'package:firebase_auth09/ui/home_screen.dart';
+import 'package:firebase_auth09/ui/login.dart';
 import 'package:firebase_auth09/ui/splash.dart';
 import 'package:firebase_auth09/utils/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -31,7 +34,24 @@ MaterialApp(
       debugShowCheckedModeBanner: false,
       navigatorKey: NAV_KEY,
       onGenerateRoute: generateRoute,
-      home: SplashScreen(),
+      home: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == 
+      ConnectionState.waiting) {
+            return const CircularProgressIndicator();
+          } else if (snapshot.hasData) {
+            return HomeScreen();
+          } else if (snapshot.hasError) {
+            return const Center(
+              child: Text('Something went wrong'),
+            );
+          } else {
+            return const LoginScreen();
+          }
+        },
+      ),
+
     ));
   }
 }
