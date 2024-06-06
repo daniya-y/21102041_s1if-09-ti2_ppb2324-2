@@ -3,7 +3,6 @@ import 'package:firebase_auth09/bloc/login/login_cubit.dart';
 import 'package:firebase_auth09/bloc/register/register_cubit.dart';
 import 'package:firebase_auth09/ui/home_screen.dart';
 import 'package:firebase_auth09/ui/login.dart';
-import 'package:firebase_auth09/ui/splash.dart';
 import 'package:firebase_auth09/utils/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
